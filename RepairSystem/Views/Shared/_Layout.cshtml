@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a asp-action="Index" asp-controller="Home" class="navbar-brand"><img src="/images/logo.svg" height="80" width="135"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a asp-action="Index" asp-controller="Home" class="nav-link">Home&nbsp;&nbsp;&nbsp;|<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="Registration" asp-controller="Home" class="nav-link">Registration&nbsp;&nbsp;|<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="RegistrationList" asp-controller="Home" class="nav-link">Car Repair List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer><h6>&copy;&nbsp; Kryselle Celine Matienzo - 301026753</h6></footer>
+</body>
+</html>

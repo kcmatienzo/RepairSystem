@@ -1,0 +1,63 @@
+﻿@model IEnumerable<CarRegistration>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "View Car Details";
+}
+
+<div class="panel-body">
+    <div class="panel-heading text-center"><h1>Customer Details</h1></div>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>License Plate</th>
+                <th>Owner's Name</th>
+                <th>Owner's Address</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Additional Features</th>
+                <th>Date/Time of Registration</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CarRegistration c in Model)
+            {
+            <tr>
+                <td>@c.LicensePlate</td>
+                <td>@c.Owner</td>
+                <td>@c.Address</td>
+                <td>
+                    @switch (c.Make)
+                    {
+                        case 1:
+                            @:Honda
+                            break;
+                        case 2:
+                            @:Toyota
+                            break;
+                        case 3:
+                            @:Volvo
+                            break;
+                        case 4:
+                            @:Lexus
+                            break;
+                        default:
+                            @:Not Set
+                            break;
+                    }
+                </td>
+                <td>@c.Model</td>
+                <td>
+                   <p>@(c.Feature4Door ? "4 door" : null)</p>
+                   <p>@(c.FeatureEthanol ? "Ethanol" : null)</p>
+                   <p>@(c.Feature4WD ? "4WD" : null)</p>
+                </td>
+                
+                <td>@c.RegistrationDateAndTime</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

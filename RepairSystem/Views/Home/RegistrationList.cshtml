@@ -1,0 +1,50 @@
+﻿@model IEnumerable<CarRegistration>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "List of Registered Cars";
+}
+
+<div class="panel-body">
+    <div class="panel-heading text-center"><h1>Registered Car List</h1></div>
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Owner's Name</th>
+                <th>Model</th>
+                <th>Date/Time of Registration</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (CarRegistration c in Model)
+            {
+                <tr>
+                    <td>
+                    @Html.ActionLink(@c.Owner, "ViewDetails", "Home", new { id = c.LicensePlate }, null)
+                    </td>
+                    <td>
+                        @switch (c.Make)
+                        {
+                            case 1:
+                                @:Honda
+                                break;
+                            case 2:
+                                @:Toyota
+                                break;
+                            case 3:
+                                @:Volvo
+                                break;
+                            case 4:
+                                @:Lexus
+                                break;
+                            default:
+                                @:Not Set
+                                break;
+                        }
+                    </td>
+                    <td>@c.RegistrationDateAndTime</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

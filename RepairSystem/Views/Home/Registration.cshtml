@@ -1,0 +1,61 @@
+﻿@model CarRegistration
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Registration";
+}
+
+<div class="panel panel-success">
+    <div class="panel-heading text-center"><h1>Car Repair Registration Form</h1></div>
+    <div class="panel-body">
+        <form asp-action="Registration" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label asp-for="LicensePlate">License Plate: </label>
+                <input class="form-control" asp-for="LicensePlate">
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner">Owner's Name: </label>
+                <input class="form-control" asp-for="Owner">
+            </div>
+            <div class="form-group">
+                <label asp-for="Address">Address: </label>
+                <input class="form-control" asp-for="Address">
+            </div>
+            <div class="form-group">
+                <label asp-for="Make">Make: </label>
+                <select class="form-control" asp-for="Make">
+                    <option value="">Choose an option</option>
+                    <option value="1">Honda</option>
+                    <option value="2">Toyota</option>
+                    <option value="3">Volvo</option>
+                    <option value="4">Lexus</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model">Model: </label>
+                <input class="form-control" asp-for="Model">
+            </div>
+            <div class="form-group">
+                <label asp-for="Feature4Door">
+                    <input asp-for="Feature4Door" type="checkbox" /> 4 door
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeatureEthanol">
+                    <input asp-for="FeatureEthanol" type="checkbox" /> Ethanol
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Feature4WD">
+                    <input asp-for="Feature4WD" type="checkbox" /> 4WD
+                </label>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Register</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+
+        </form>
+    </div>
+</div>

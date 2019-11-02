@@ -1,0 +1,38 @@
+﻿@model CarRegistration
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Thank You";
+}
+
+
+<div class="panel-heading text-center">
+    <h3>
+        @Model.Model belongs to @Model.Owner and it has been successfully
+        registered as @switch (Model.Make)
+        {
+            case 1:
+                @:Honda
+                break;
+            case 2:
+                @:Toyota
+                break;
+            case 3:
+                @:Volvo
+                break;
+            case 4:
+                @:Lexus
+                break;
+            default:
+                @:Not Set
+                break;
+        } on @Model.RegistrationDateAndTime
+    </h3>
+</div>
+
+<div class="container">
+    <a class="nav-link" asp-action="RegistrationList">
+        <div class="overlay">
+            <div class="text">See Car Registration List</div>
+        </div>
+    </a>
+</div>
